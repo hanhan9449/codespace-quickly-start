@@ -17,6 +17,20 @@ const config = {
                 test: /\.tsx?$/,
                 use: 'swc-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.module\.pcss$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                            modules: true
+                        }
+                    },
+                    'postcss-loader'
+                ],
             }
         ]
     },
